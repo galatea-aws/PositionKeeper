@@ -8,15 +8,11 @@ CREATE TABLE trades
 	position_delta	BIGINT		 NOT NULL,
 );
 
-PARTITION TABLE trades ON COLUMN account_id;
-
 CREATE TABLE accounts
 (
 	account_id		varchar(50) NOT NULL,
 	PRIMARY KEY(account_id)
 );
-
-PARTITION TABLE accounts ON COLUMN account_id;
 
 CREATE TABLE products
 (
@@ -25,8 +21,6 @@ CREATE TABLE products
 	PRIMARY KEY(product_cusip)
 );
 
-PARTITION TABLE products ON COLUMN product_cusip;
-
 -- stored procedures
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.Initialize;
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.DoTrade;
@@ -34,4 +28,10 @@ CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.CountTradesByAccount;
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionByAccount;
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionByAccountAndProduct;
 
+-- parition table
+PARTITION TABLE trades ON COLUMN account_id;
+PARTITION TABLE accounts ON COLUMN account_id;
+PARTITION TABLE products ON COLUMN product_cusip;
+
+-- index
 CREATE INDEX trades_account_id ON trades (product_cusip,account_id);
