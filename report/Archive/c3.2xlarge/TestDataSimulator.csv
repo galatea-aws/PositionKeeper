@@ -1,5 +1,0 @@
-Server Count,Client Count,Avg Through Put(txn/s),Trade Volume,Account Count,Product Count,Trade Days,Sitesperhost,Kfactor,Temtablesize,Date
-3,1,5252,2500,6,100,5,6,0,2048,2014-01-27 04:32:50
-3,1,10964,2500,6,100,5,6,0,2048,2014-01-27 04:56:06
-2,1,8116,2500,6,100,5,6,0,2048,2014-01-27 04:57:19
-1,1,8116,2500,6,100,5,6,0,2048,2014-01-27 04:58:31
