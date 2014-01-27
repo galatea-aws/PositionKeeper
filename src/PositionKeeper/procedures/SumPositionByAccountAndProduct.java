@@ -13,7 +13,7 @@ import org.voltdb.VoltType;
 
 public class SumPositionByAccountAndProduct  extends VoltProcedure{
     public static final SQLStmt resultStmt = new SQLStmt(
-            "SELECT sum(position_delta) from trades where account_id = ? and product_cusip = ?");
+            "SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?");
 
     static class Result {
         public final long count;
