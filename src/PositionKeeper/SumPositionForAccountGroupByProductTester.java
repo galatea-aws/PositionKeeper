@@ -17,9 +17,9 @@ import PositionKeeper.procedures.SumPositionForAccountGroupByProduct;
 	    singlePartition = true
 	)
 
-public class SumPositionForAccountByProductTester extends VoltPerformanceTester{
+public class SumPositionForAccountGroupByProductTester extends VoltPerformanceTester{
 	
-	public SumPositionForAccountByProductTester() {
+	public SumPositionForAccountGroupByProductTester() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -50,7 +50,7 @@ public class SumPositionForAccountByProductTester extends VoltPerformanceTester{
 	
     public static void main(String[] args) throws Exception {
         
-    	SumPositionForAccountByProductTester tester = new SumPositionForAccountByProductTester();
+    	SumPositionForAccountGroupByProductTester tester = new SumPositionForAccountGroupByProductTester();
         tester.run();
     }
 }
