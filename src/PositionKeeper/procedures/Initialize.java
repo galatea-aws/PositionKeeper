@@ -91,7 +91,7 @@ public class Initialize extends VoltProcedure
         	productCusip = "cusip" + i;
         	productName = "product" + i;
         	productIsin = StringUtils.rightPad(String.valueOf(i), 12, "0");
-        	productTicker = StringUtils.rightPad(String.valueOf(i), 9, "0");
+        	productTicker = "MSFT";
         	productRic = ".SPX";
         	productCcy = "USD";
         	productCoi = "XXX";
