@@ -50,7 +50,7 @@ public class SumPositionForAccountByProductTester extends VoltPerformanceTester{
 	
     public static void main(String[] args) throws Exception {
         
-        SumPositionByAccountAndProductTester tester = new SumPositionByAccountAndProductTester();
+    	SumPositionForAccountByProductTester tester = new SumPositionForAccountByProductTester();
         tester.run();
     }
 }
