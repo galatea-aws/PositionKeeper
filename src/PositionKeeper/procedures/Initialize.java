@@ -27,9 +27,13 @@
 
 package PositionKeeper.procedures;
 
+import java.util.Date;
+
+import org.apache.commons.lang3.StringUtils;
 import org.voltdb.ProcInfo;
 import org.voltdb.SQLStmt;
 import org.voltdb.VoltProcedure;
+import org.voltdb.types.TimestampType;
 
 @ProcInfo (
     singlePartition = false
@@ -40,10 +44,16 @@ public class Initialize extends VoltProcedure
     public final SQLStmt checkStmt = new SQLStmt("SELECT COUNT(*) FROM accounts;");
 
     // Inserts an account
-    public final SQLStmt insertAccountStmt = new SQLStmt("INSERT INTO accounts (account_id) VALUES (?);");
+    public final SQLStmt insertAccountStmt = new SQLStmt("INSERT INTO accounts "
+    													+ "(account_id,account_name,account_address,account_tin,"
+											    		+ "create_user, create_timestamp, last_update_user, last_update_timestamp) "
+											    		+ "VALUES (?,?,?,?,?,?,?,?);");
 
     // Inserts a product
-    public final SQLStmt insertProductStmt = new SQLStmt("INSERT INTO products (product_cusip, product_name) VALUES (?, ?);");
+    public final SQLStmt insertProductStmt = new SQLStmt("INSERT INTO products "
+    													+ "(product_cusip, product_name,product_isin, prodcut_ticker, prodcut_ric, prodcut_ccy, prodcut_coi,"
+    													+ "create_user, create_timestamp, last_update_user, last_update_timestamp) "
+    													+ "VALUES (?,?,?,?,?,?,?,?,?,?,?);");
 
 
     public long run(int maxAccounts, int maxProducts) {
@@ -55,19 +65,38 @@ public class Initialize extends VoltProcedure
             return existingAccount;
 
         // initialize the data
+        String User = "TestAccount";
         String accountId = null;
+        String accountName = null;
+        String accountAddress = null;
+        String accountTin = null;
         for (int i=1; i <= maxAccounts; i++){
         	accountId = "account" + i;
-            voltQueueSQL(insertAccountStmt, EXPECT_SCALAR_MATCH(1), accountId);
+        	accountName = "peter" + i;
+        	accountAddress = i + " Holland street";
+        	accountTin = String.valueOf(i);
+            voltQueueSQL(insertAccountStmt, EXPECT_SCALAR_MATCH(1), accountId,accountName,accountAddress,accountTin,
+            			User,new TimestampType(new Date()),User,new TimestampType(new Date()));
         }
         voltExecuteSQL();
         
         String productCusip = null;
         String productName = null;
+        String productIsin = null;
+        String productTicker = null;
+        String productRic = null;
+        String productCcy = null;
+        String productCoi = null;
         for (int i=0; i < maxProducts; i++){
         	productCusip = "cusip" + i;
         	productName = "product" + i;
-            voltQueueSQL(insertProductStmt, EXPECT_SCALAR_MATCH(1), productCusip, productName);
+        	productIsin = StringUtils.rightPad(String.valueOf(i), 12, "0");
+        	productTicker = StringUtils.rightPad(String.valueOf(i), 9, "0");
+        	productRic = ".SPX";
+        	productCcy = "USD";
+        	productCoi = "XXX";
+            voltQueueSQL(insertProductStmt, EXPECT_SCALAR_MATCH(1), productCusip, productName,productIsin, productTicker, productRic, productCcy, productCoi,
+            		User,new TimestampType(new Date()),User,new TimestampType(new Date()));
         }   
         voltExecuteSQL();
 

@@ -1,23 +1,47 @@
 CREATE TABLE trades
 (
-	trade_id        BIGINT       NOT NULL,
-	account_id      varchar(50)   NOT NULL,
-	product_cusip   varchar(50)      NOT NULL,
-	knowledge_date  TIMESTAMP    NOT NULL,
-	effective_date  TIMESTAMP    NOT NULL,
-	position_delta	BIGINT		 NOT NULL,
+	trade_id       	      BIGINT       NOT NULL,
+	account_id    		  varchar(9)   NOT NULL,
+	product_cusip         varchar(9)   NOT NULL,
+	exchange		      varchar(2)   NOT NULL,
+	status                varchar(1)   NOT NULL,
+	sourcesystem_id       varchar(50)  NOT NULL,
+	knowledge_date        TIMESTAMP    NOT NULL,
+	effective_date        TIMESTAMP    NOT NULL,
+	settlement_date       TIMESTAMP    NOT NULL,
+	position_delta	      BIGINT	   NOT NULL,
+	create_user           varchar(50)  NOT NULL,
+	create_timestamp      TIMESTAMP    NOT NULL,
+	last_update_user      varchar(50)  NOT NULL,
+	last_update_timestamp TIMESTAMP    NOT NULL,
 );
 
 CREATE TABLE accounts
 (
-	account_id		varchar(50) NOT NULL,
+	account_id	          varchar(50)  NOT NULL,
+	account_name	      varchar(50)  NOT NULL,
+	account_address	      varchar(50)  NOT NULL,
+	account_tin		      varchar(20)  NOT NULL,
+	create_user           varchar(50)  NOT NULL,
+	create_timestamp      TIMESTAMP    NOT NULL,
+	last_update_user      varchar(50)  NOT NULL,
+	last_update_timestamp TIMESTAMP    NOT NULL,
 	PRIMARY KEY(account_id)
 );
 
 CREATE TABLE products
 (
-	product_cusip	varchar(50)     NOT NULL,
-	product_name	varchar(50) NOT NULL,
+	product_cusip	      varchar(50)  NOT NULL,
+	product_name	      varchar(50)  NOT NULL,
+	product_isin	      varchar(12)  NOT NULL,
+	prodcut_ticker	      varchar(6)   NOT NULL,
+	prodcut_ric	          varchar(9)   NOT NULL,
+	prodcut_ccy	          varchar(3)   NOT NULL,
+	prodcut_coi           varchar(3)   NOT NULL,
+	create_user           varchar(50)  NOT NULL,
+	create_timestamp      TIMESTAMP    NOT NULL,
+	last_update_user      varchar(50)  NOT NULL,
+	last_update_timestamp TIMESTAMP    NOT NULL,
 	PRIMARY KEY(product_cusip)
 );
 

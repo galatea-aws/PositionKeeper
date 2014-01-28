@@ -350,22 +350,30 @@ public class TestDataSimulator {
         while (currentDate.before(endDate)) {
         	for(int i=0;i<tradevolume;i++){
                 // Get the next phone call
-                TradeGenerator.Trade trade = switchboard.CreateTrade(tradeId++,currentDate, currentDate);
+                TradeGenerator.Trade trade = switchboard.CreateTrade(tradeId++,currentDate, currentDate, client, 0);
                 // asynchronously call the "Vote" procedure
                 client.callProcedure(new TradeCallback(),
                                      "DoTrade",
-                                     trade.accountId,
                                      trade.tradeId,
-                                     trade.productcusip,
+                                     trade.accountId,
+                                     trade.productCusip,
+                                     trade.exchange,
+                                     trade.status,
+                                     trade.sourcesystemId,
                                      trade.knowledgeDate,
                                      trade.effectiveDate,
-                                     trade.positionDelta
+                                     trade.settlementDate,
+                                     trade.positionDelta,
+                                     trade.createUser,
+                                     trade.createTimestamp,
+                                     trade.lastUpdateUser,
+                                     trade.lastUpdateTimestamp
                 					);
         	}
         	calendar.add(Calendar.DAY_OF_YEAR,1);
 			currentDate = calendar.getTime();
         }
-
+		
         // cancel periodic stats printing
         timer.cancel();
 
