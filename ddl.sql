@@ -55,7 +55,7 @@ CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionForAccountGroup
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionForProductGroupByAccount;
 
 -- parition table
-PARTITION TABLE trades ON COLUMN account_id;
+PARTITION TABLE trades ON COLUMN product_cusip;
 
 -- index
 CREATE INDEX trades_account_id ON trades (product_cusip,account_id);

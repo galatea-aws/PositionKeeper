@@ -36,8 +36,7 @@ import org.voltdb.VoltTable;
 import org.voltdb.VoltType;
 
 @ProcInfo (
-    partitionInfo = "trades.account_id:0",
-    singlePartition = true
+    singlePartition = false
 )
 public class CountTradesByAccount extends VoltProcedure{
     public final static SQLStmt resultStmt = new SQLStmt(

@@ -6,7 +6,8 @@ import org.voltdb.VoltProcedure;
 import org.voltdb.VoltTable;
 
 @ProcInfo (
-	    singlePartition = false
+	    partitionInfo = "trades.product_cusip:0",
+	    singlePartition = true
 )
 public class SumPositionForProductGroupByAccount extends VoltProcedure{
     public static final SQLStmt resultStmt = new SQLStmt(

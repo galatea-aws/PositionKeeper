@@ -7,8 +7,7 @@ import org.voltdb.VoltTable;
 import org.voltdb.VoltType;
 
 @ProcInfo (
-	    partitionInfo = "trades.account_id:0",
-	    singlePartition = true
+	    singlePartition = false
 )
 public class SumPositionForAccountGroupByProduct extends VoltProcedure{
     public static final SQLStmt resultStmt = new SQLStmt(

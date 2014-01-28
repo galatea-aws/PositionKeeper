@@ -39,7 +39,7 @@ import org.voltdb.VoltTable;
 import org.voltdb.types.TimestampType;
 
 @ProcInfo (
-    partitionInfo = "trades.account_id: 1",
+    partitionInfo = "trades.product_cusip: 2",
     singlePartition = true
 )
 public class DoTrade extends VoltProcedure {
