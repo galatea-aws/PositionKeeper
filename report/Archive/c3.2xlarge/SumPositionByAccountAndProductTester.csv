@@ -2,3 +2,4 @@ Server Count,Client Count,Trade Volume,Query Name,Query Duration(s),Record Count
 1,1,500000,SumPositionByAccountAndProduct,0.011,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:07:41
 3,1,500000,SumPositionByAccountAndProduct,0.011,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:10:31
 3,1,500000,SumPositionByAccountAndProduct,0.011,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:17:48
+2,1,500000,SumPositionByAccountAndProduct,0.012,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:19:04
