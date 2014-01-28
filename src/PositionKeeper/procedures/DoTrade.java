@@ -39,7 +39,7 @@ import org.voltdb.VoltTable;
 import org.voltdb.types.TimestampType;
 
 @ProcInfo (
-    partitionInfo = "trades.account_id:0",
+    partitionInfo = "trades.account_id: 0",
     singlePartition = true
 )
 public class DoTrade extends VoltProcedure {
@@ -55,7 +55,7 @@ public class DoTrade extends VoltProcedure {
     		Date knowledgeDate, Date effectiveDate, Date settlementDate, long positionDelta, 
     		String createUser, Date createTimestamp, String lastUpdateUser, Date lastUpdateTimestamp) {
         // Post the vote
-        voltQueueSQL(insertTradeStmt, accountId, tradeId,productCusip, exchange, status, sourcesystemId, 
+        voltQueueSQL(insertTradeStmt, EXPECT_SCALAR_MATCH(1), accountId, tradeId,productCusip, exchange, status, sourcesystemId, 
         		new TimestampType(knowledgeDate), new TimestampType(effectiveDate), new TimestampType(settlementDate), positionDelta,
         		createUser, new TimestampType(createTimestamp), lastUpdateUser, new TimestampType(lastUpdateTimestamp));
         voltExecuteSQL(true);
