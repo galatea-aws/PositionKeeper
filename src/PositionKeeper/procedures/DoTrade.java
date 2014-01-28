@@ -49,7 +49,7 @@ public class DoTrade extends VoltProcedure {
 								    					+ "(trade_id, account_id, product_cusip, exchange, status, sourcesystem_id, "
 								    					+ "knowledge_date, effective_date, settlement_date, position_delta,"
 									            		+ "create_user, create_timestamp, last_update_user, last_update_timestamp) "
-									            		+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?);");
+									            		+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
 
     public long run(long tradeId, String accountId, String productCusip, String exchange, String status, String sourcesystemId, 
     		Date knowledgeDate, Date effectiveDate, Date settlementDate, long positionDelta, 
