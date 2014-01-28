@@ -1,0 +1,4 @@
+Server Count,Client Count,Trade Volume,Query Name,Query Duration(s),Record Count,Query Statement,Sitesperhost,Kfactor,Temtablesize,Date
+3,1,25000,SumPositionForAccountGroupByProduct,0.016,100,"SELECT product_cusip,sum(position_delta) FROM trades WHERE account_id = ? GROUP BY product_cusip",6,0,2048,2014-01-28 03:28:12
+3,1,25000,SumPositionForProductGroupByAccount,0.013,6,"SELECT account_id,sum(position_delta) FROM trades WHERE product_cusip = ? GROUP BY account_id",6,0,2048,2014-01-28 03:31:33
+3,1,250000,SumPositionForProductGroupByAccount,0.04,6,"SELECT account_id,sum(position_delta) FROM trades WHERE product_cusip = ? GROUP BY account_id",6,0,2048,2014-01-28 04:31:38
