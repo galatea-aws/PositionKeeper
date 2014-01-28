@@ -349,9 +349,9 @@ public class TestDataSimulator {
         long tradeId = 1;
         while (currentDate.before(endDate)) {
         	for(int i=0;i<tradevolume;i++){
-                // Get the next phone call
+                // Get the next trade
                 TradeGenerator.Trade trade = switchboard.CreateTrade(tradeId++,currentDate, currentDate, client, 0);
-                // asynchronously call the "Vote" procedure
+                // asynchronously call the "DoTrade" procedure
                 client.callProcedure(new TradeCallback(),
                                      "DoTrade",
                                      trade.tradeId,
