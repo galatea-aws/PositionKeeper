@@ -7,6 +7,7 @@ import org.voltdb.client.NoConnectionsException;
 import org.voltdb.client.ProcCallException;
 
 import PositionKeeper.procedures.SumPositionForAccountGroupByProduct;
+import PositionKeeper.procedures.SumPositionForProductGroupByAccount;
 
 public class SumPositionForProductGroupByAccountTester  extends VoltPerformanceTester{
 	
@@ -27,7 +28,7 @@ public class SumPositionForProductGroupByAccountTester  extends VoltPerformanceT
     			productCusip).getResults()[0];
     	
     	String queryDuration = String.valueOf((double)(System.currentTimeMillis()-queryStartTS)/1000f);
-        String output = "SumPositionForProductGroupByAccount," + queryDuration + "," + result.getRowCount() + "," + "\"" + SumPositionForAccountGroupByProduct.resultStmt.getText() + "\"";
+        String output = "SumPositionForProductGroupByAccount," + queryDuration + "," + result.getRowCount() + "," + "\"" + SumPositionForProductGroupByAccount.resultStmt.getText() + "\"";
         System.out.println(output);
 
         // block until all outstanding txns return
@@ -39,7 +40,7 @@ public class SumPositionForProductGroupByAccountTester  extends VoltPerformanceT
 	
     public static void main(String[] args) throws Exception {
         
-    	SumPositionForAccountGroupByProductTester tester = new SumPositionForAccountGroupByProductTester();
+    	SumPositionForProductGroupByAccountTester tester = new SumPositionForProductGroupByAccountTester();
         tester.run();
     }
 }
