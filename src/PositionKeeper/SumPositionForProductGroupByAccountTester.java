@@ -2,19 +2,15 @@ package PositionKeeper;
 
 import java.io.IOException;
 
-import org.voltdb.ProcInfo;
-import org.voltdb.SQLStmt;
-import org.voltdb.VoltProcedure;
 import org.voltdb.VoltTable;
 import org.voltdb.client.NoConnectionsException;
 import org.voltdb.client.ProcCallException;
 
-import PositionKeeper.procedures.SumPositionByAccountAndProduct;
 import PositionKeeper.procedures.SumPositionForAccountGroupByProduct;
 
-public class SumPositionForAccountGroupByProductTester extends VoltPerformanceTester{
+public class SumPositionForProductGroupByAccountTester  extends VoltPerformanceTester{
 	
-	public SumPositionForAccountGroupByProductTester() {
+	public SumPositionForProductGroupByAccountTester() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -25,13 +21,13 @@ public class SumPositionForAccountGroupByProductTester extends VoltPerformanceTe
         
     	long queryStartTS = System.currentTimeMillis();
 
-    	String accountId = procedureProp.getProperty("SumPositionForAccountGroupByProduct.accountid","account1");
+    	String productCusip = procedureProp.getProperty("SumPositionForProductGroupByAccount.","cusip2");
     	
-    	VoltTable result = client.callProcedure("SumPositionForAccountGroupByProduct",
-    			accountId).getResults()[0];
+    	VoltTable result = client.callProcedure("SumPositionForProductGroupByAccount",
+    			productCusip).getResults()[0];
     	
     	String queryDuration = String.valueOf((double)(System.currentTimeMillis()-queryStartTS)/1000f);
-        String output = "SumPositionForAccountGroupByProduct," + queryDuration + "," + result.getRowCount() + "," + "\"" + SumPositionForAccountGroupByProduct.resultStmt.getText() + "\"";
+        String output = "SumPositionForProductGroupByAccount," + queryDuration + "," + result.getRowCount() + "," + "\"" + SumPositionForAccountGroupByProduct.resultStmt.getText() + "\"";
         System.out.println(output);
 
         // block until all outstanding txns return

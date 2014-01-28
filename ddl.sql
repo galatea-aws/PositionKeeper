@@ -49,9 +49,9 @@ CREATE TABLE products
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.Initialize;
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.DoTrade;
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.CountTradesByAccount;
-CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionByAccount;
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionByAccountAndProduct;
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionForAccountGroupByProduct;
+CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionForProductGroupByAccount;
 
 -- parition table
 PARTITION TABLE trades ON COLUMN account_id;
