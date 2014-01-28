@@ -11,7 +11,7 @@ import org.voltdb.VoltType;
 )
 public class GetProductCusipByIsin extends VoltProcedure{
     public final static SQLStmt resultStmt = new SQLStmt(
-            "SELECT product_cusip from product where product_isin = ?");
+            "SELECT product_cusip from products where product_isin = ?");
     
 
     public VoltTable run(String productIsin)
