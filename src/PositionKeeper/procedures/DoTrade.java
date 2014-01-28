@@ -46,7 +46,7 @@ public class DoTrade extends VoltProcedure {
 
     // Records a vote
     public final SQLStmt insertTradeStmt = new SQLStmt("INSERT INTO trades "
-								    					+ "(trade_id, account_id, product_cusip, exchange, status, sourcesystem_id, "
+								    					+ "(account_id, trade_id, product_cusip, exchange, status, sourcesystem_id, "
 								    					+ "knowledge_date, effective_date, settlement_date, position_delta,"
 									            		+ "create_user, create_timestamp, last_update_user, last_update_timestamp) "
 									            		+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
@@ -55,7 +55,7 @@ public class DoTrade extends VoltProcedure {
     		Date knowledgeDate, Date effectiveDate, Date settlementDate, long positionDelta, 
     		String createUser, Date createTimestamp, String lastUpdateUser, Date lastUpdateTimestamp) {
         // Post the vote
-        voltQueueSQL(insertTradeStmt, EXPECT_SCALAR_MATCH(1),tradeId, accountId,productCusip, exchange, status, sourcesystemId, 
+        voltQueueSQL(insertTradeStmt, EXPECT_SCALAR_MATCH(1), accountId, tradeId, productCusip, exchange, status, sourcesystemId, 
         		new TimestampType(knowledgeDate), new TimestampType(effectiveDate), new TimestampType(settlementDate), positionDelta,
         		createUser, new TimestampType(createTimestamp), lastUpdateUser, new TimestampType(lastUpdateTimestamp));
         voltExecuteSQL(true);
