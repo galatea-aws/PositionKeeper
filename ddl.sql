@@ -1,7 +1,7 @@
 CREATE TABLE trades
 (
-	account_id    		  varchar(9)   NOT NULL,
 	trade_id       	      BIGINT       NOT NULL,
+	account_id    		  varchar(9)   NOT NULL,
 	product_cusip         varchar(9)   NOT NULL,
 	exchange		      varchar(2)   NOT NULL,
 	status                varchar(1)   NOT NULL,
