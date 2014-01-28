@@ -6,7 +6,7 @@ import org.voltdb.VoltProcedure;
 import org.voltdb.VoltTable;
 
 @ProcInfo (
-	    partitionInfo = "trades.account_id:1",
+	    partitionInfo = "trades.account_id:0",
 	    singlePartition = true
 	)
 
