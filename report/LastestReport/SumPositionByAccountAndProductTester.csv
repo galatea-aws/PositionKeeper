@@ -1,2 +1,3 @@
 Server Count,Client Count,Trade Volume,Query Name,Query Duration(s),Record Count,Query Statement,Sitesperhost,Kfactor,Temtablesize,Date
 3,1,250000,SumPositionByAccountAndProduct,0.01,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 04:31:31
+3,1,250000,SumPositionByAccountAndProduct,0.014,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 04:33:55
