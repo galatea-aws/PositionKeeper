@@ -1,2 +1,0 @@
-Server Count,Client Count,Trade Volume,Query Name,Query Duration(s),Record Count,Query Statement,Sitesperhost,Kfactor,Temtablesize,Date
-3,1,25000,SumPositionForProductGroupByAccount,6,0,2048,2014-01-28 03:23:51
