@@ -1,0 +1,15 @@
+Server Count,Client Count,Trade Volume,Query Name,Query Duration(s),Record Count,Query Statement,Sitesperhost,Kfactor,Temtablesize,Date
+1,1,500000,SumPositionByAccountAndProduct,0.011,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:07:41
+3,1,500000,SumPositionByAccountAndProduct,0.011,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:10:31
+3,1,500000,SumPositionByAccountAndProduct,0.011,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:17:48
+2,1,500000,SumPositionByAccountAndProduct,0.012,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:19:04
+1,1,500000,SumPositionByAccountAndProduct,0.01,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:20:22
+3,1,25000000,SumPositionByAccountAndProduct,0.012,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:31:12
+3,1,25000000,SumPositionByAccountAndProduct,0.012,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:41:32
+2,1,25000000,SumPositionByAccountAndProduct,0.012,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:47:01
+3,1,250000,SumPositionByAccountAndProduct,0.013,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:58:36
+2,1,250000,SumPositionByAccountAndProduct,0.011,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 01:59:53
+1,1,250000,SumPositionByAccountAndProduct,0.01,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 02:01:11
+3,1,25000000,SumPositionByAccountAndProduct,0.012,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 02:07:15
+2,1,25000000,SumPositionByAccountAndProduct,0.011,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 02:12:47
+1,1,25000000,SumPositionByAccountAndProduct,0.01,1,SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?,6,0,2048,2014-01-28 02:21:21
