@@ -38,6 +38,7 @@ public class TradeGenerator {
             this.sourcesystemId = sourcesystemId;
             this.knowledgeDate = knowledgeDate;
             this.effectiveDate = effectiveDate;
+            this.settlementDate = settlementDate;
             this.positionDelta = positionDelta;
             this.createUser = createUser;
             this.createTimestamp = createTimestamp;
