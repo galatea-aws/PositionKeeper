@@ -1,11 +1,17 @@
 package PositionKeeper;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
 import org.apache.commons.lang3.StringUtils;
+import org.voltdb.VoltTable;
 import org.voltdb.client.Client;
+import org.voltdb.client.NoConnectionsException;
+import org.voltdb.client.ProcCallException;
+
+import PositionKeeper.procedures.SumPositionByAccountAndProduct;
 
 public class TradeGenerator {
 	
@@ -52,7 +58,7 @@ public class TradeGenerator {
     	this.maxProducts = maxProducts;
     }
     
-    public Trade CreateTrade(long tradeId, Date knowledgeDate, Date effectiveDate, Client client, int probabilityByIsin){
+    public Trade CreateTrade(long tradeId, Date knowledgeDate, Date effectiveDate, Client client, int probabilityByIsin) throws NoConnectionsException, IOException, ProcCallException{
         String accountId = "account" + (random.nextInt(maxAccounts)+1);
         
     	int productId = random.nextInt(maxProducts)+1;
@@ -62,6 +68,10 @@ public class TradeGenerator {
         //Look up product cusip by product isin.
     	boolean getProductByIsin = random.nextInt(100)<probabilityByIsin;
     	if(getProductByIsin){
+    		VoltTable result = client.callProcedure("GetProductCusipByIsin", productIsin).getResults()[0];
+            while(result.advanceRow()) {
+            	productCusip = result.getString(0);
+            }
     	}
     	
     	

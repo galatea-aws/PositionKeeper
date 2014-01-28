@@ -39,18 +39,10 @@ import org.voltdb.VoltType;
     partitionInfo = "trades.account_id:0",
     singlePartition = true
 )
-public class CountTradesByAccount extends VoltProcedure
-{
+public class CountTradesByAccount extends VoltProcedure{
     public final static SQLStmt resultStmt = new SQLStmt(
             "SELECT count (account_id) from trades where account_id = ?");
-
-    static class Result {
-        public final long count;
-
-        public Result(long count) {
-            this.count = count;
-        }
-    }
+    
 
     public VoltTable run(String accountId)
     {

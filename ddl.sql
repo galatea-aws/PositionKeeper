@@ -48,6 +48,7 @@ CREATE TABLE products
 -- stored procedures
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.Initialize;
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.DoTrade;
+CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.GetProductCusipByIsin;
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.CountTradesByAccount;
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionByAccountAndProduct;
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionForAccountGroupByProduct;
