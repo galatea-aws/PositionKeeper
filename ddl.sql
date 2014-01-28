@@ -1,7 +1,7 @@
 CREATE TABLE trades
 (
-	trade_id       	      BIGINT       NOT NULL,
 	account_id    		  varchar(9)   NOT NULL,
+	trade_id       	      BIGINT       NOT NULL,
 	product_cusip         varchar(9)   NOT NULL,
 	exchange		      varchar(2)   NOT NULL,
 	status                varchar(1)   NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE trades
 
 CREATE TABLE accounts
 (
-	account_id	          varchar(50)  NOT NULL,
+	account_id	          varchar(9)  NOT NULL,
 	account_name	      varchar(50)  NOT NULL,
 	account_address	      varchar(50)  NOT NULL,
 	account_tin		      varchar(20)  NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE accounts
 
 CREATE TABLE products
 (
-	product_cusip	      varchar(50)  NOT NULL,
+	product_cusip	      varchar(9)  NOT NULL,
 	product_name	      varchar(50)  NOT NULL,
 	product_isin	      varchar(12)  NOT NULL,
 	prodcut_ticker	      varchar(6)   NOT NULL,
@@ -54,8 +54,6 @@ CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionByAccountAndPro
 
 -- parition table
 PARTITION TABLE trades ON COLUMN account_id;
-PARTITION TABLE accounts ON COLUMN account_id;
-PARTITION TABLE products ON COLUMN product_cusip;
 
 -- index
 CREATE INDEX trades_account_id ON trades (product_cusip,account_id);
