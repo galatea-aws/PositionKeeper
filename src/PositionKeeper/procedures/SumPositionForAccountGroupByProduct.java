@@ -6,9 +6,6 @@ import org.voltdb.VoltProcedure;
 import org.voltdb.VoltTable;
 import org.voltdb.VoltType;
 
-@ProcInfo (
-	    singlePartition = false
-)
 public class SumPositionForAccountGroupByProduct extends VoltProcedure{
     public static final SQLStmt resultStmt = new SQLStmt(
             "SELECT product_cusip,sum(position_delta) FROM trades WHERE account_id = ? GROUP BY product_cusip");

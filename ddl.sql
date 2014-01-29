@@ -47,15 +47,29 @@ CREATE TABLE products
 
 -- stored procedures
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.Initialize;
+--INSERT INTO trades "
+--(trade_id, account_id, product_cusip, exchange, status, sourcesystem_id,
+--knowledge_date, effective_date, settlement_date, position_delta,
+--create_user, create_timestamp, last_update_user, last_update_timestamp)
+--VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.DoTrade;
+--SELECT product_cusip from products where product_isin = ?
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.GetProductCusipByIsin;
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.CountTradesByAccount;
+--SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionByAccountAndProduct;
+--SELECT product_cusip,sum(position_delta) FROM trades WHERE account_id = ? GROUP BY product_cusip
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionForAccountGroupByProduct;
+--SELECT account_id,sum(position_delta) FROM trades WHERE product_cusip = ? GROUP BY account_id
 CREATE PROCEDURE FROM CLASS PositionKeeper.procedures.SumPositionForProductGroupByAccount;
 
--- parition table
+-- parition tables
 PARTITION TABLE trades ON COLUMN product_cusip;
+
+-- parition procedures
+PARTITION PROCEDURE DoTrade ON TABLE trades COLUMN product_cusip PARAMETER 2;
+PARTITION PROCEDURE SumPositionByAccountAndProduct ON TABLE trades COLUMN product_cusip;
+PARTITION PROCEDURE SumPositionForProductGroupByAccount ON TABLE trades COLUMN product_cusip;
 
 -- index
 CREATE INDEX trades_account_id ON trades (product_cusip,account_id);

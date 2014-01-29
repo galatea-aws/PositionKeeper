@@ -35,9 +35,6 @@ import org.voltdb.SQLStmt;
 import org.voltdb.VoltProcedure;
 import org.voltdb.types.TimestampType;
 
-@ProcInfo (
-    singlePartition = false
-)
 public class Initialize extends VoltProcedure
 {
     // Check if the database has already been initialized

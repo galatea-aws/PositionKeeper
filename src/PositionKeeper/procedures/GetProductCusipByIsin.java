@@ -6,9 +6,6 @@ import org.voltdb.VoltProcedure;
 import org.voltdb.VoltTable;
 import org.voltdb.VoltType;
 
-@ProcInfo (
-	    singlePartition = false
-)
 public class GetProductCusipByIsin extends VoltProcedure{
     public final static SQLStmt resultStmt = new SQLStmt(
             "SELECT product_cusip from products where product_isin = ?");
