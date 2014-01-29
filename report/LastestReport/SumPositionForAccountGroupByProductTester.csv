@@ -12,3 +12,4 @@ Server Count,Client Count,Trade Volume,Query Name,Query Duration(s),Record Count
 3,1,25000000,SumPositionForAccountGroupByProduct,0.527,100,"SELECT product_cusip,sum(position_delta) FROM trades WHERE account_id = ? GROUP BY product_cusip",6,0,2048,2014-01-29 10:03:59
 3,1,25000000,SumPositionForAccountGroupByProduct,0.527,100,"SELECT product_cusip,sum(position_delta) FROM trades WHERE account_id = ? GROUP BY product_cusip",6,0,2048,2014-01-29 10:05:58
 3,1,25000000,SumPositionForAccountGroupByProduct,0.527,100,"SELECT product_cusip,sum(position_delta) FROM trades WHERE account_id = ? GROUP BY product_cusip",6,0,2048,2014-01-29 10:08:11
+3,1,25000000,SumPositionForAccountGroupByProduct,0.554,100,"SELECT product_cusip,sum(position_delta) FROM trades WHERE account_id = ? GROUP BY product_cusip",6,0,2048,2014-01-29 10:15:42
