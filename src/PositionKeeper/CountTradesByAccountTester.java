@@ -31,10 +31,11 @@ public class CountTradesByAccountTester extends VoltPerformanceTester{
     			accountId).getResults()[0];
     	
     	String queryDuration = String.valueOf((double)(System.currentTimeMillis()-queryStartTS)/1000f);
-        while(result.advanceRow()) {
-            String output = "CountTradesByAccount," + queryDuration + "," + result.getLong(0) + "," + CountTradesByAccount.resultStmt.getText();
-            System.out.println(output);
-        }
+    	
+    	System.out.println("CountTradesByAccount");
+    	System.out.println(CountTradesByAccount.resultStmt.getText());
+    	System.out.println(queryDuration);
+    	System.out.println(result.getRowCount());
 
         // block until all outstanding txns return
         client.drain();

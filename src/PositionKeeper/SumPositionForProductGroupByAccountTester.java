@@ -28,8 +28,10 @@ public class SumPositionForProductGroupByAccountTester  extends VoltPerformanceT
     			productCusip).getResults()[0];
     	
     	String queryDuration = String.valueOf((double)(System.currentTimeMillis()-queryStartTS)/1000f);
-        String output = "SumPositionForProductGroupByAccount," + queryDuration + "," + result.getRowCount() + "," + "\"" + SumPositionForProductGroupByAccount.resultStmt.getText() + "\"";
-        System.out.println(output);
+    	System.out.println("SumPositionForProductGroupByAccount");
+    	System.out.println(SumPositionForProductGroupByAccount.resultStmt.getText());
+    	System.out.println(queryDuration);
+    	System.out.println(result.getRowCount());
 
         // block until all outstanding txns return
         client.drain();

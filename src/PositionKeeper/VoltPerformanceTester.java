@@ -42,7 +42,6 @@ public class VoltPerformanceTester {
     
     //Connect to Servers
     void connect() throws InterruptedException {
-        System.out.println("Connecting to VoltDB...");
 		String servers = serverProp.getProperty("servers");
         String[] serverArray = servers.split(",");
         final CountDownLatch connections = new CountDownLatch(serverArray.length);
@@ -70,12 +69,10 @@ public class VoltPerformanceTester {
                 break;
             }
             catch (Exception e) {
-                System.err.printf("Connection failed - retrying in %d second(s).\n", sleep / 1000);
                 try { Thread.sleep(sleep); } catch (Exception interruted) {}
                 if (sleep < 8000) sleep += sleep;
             }
         }
-        System.out.printf("Connected to VoltDB node at: %s.\n", server);
     }
     
     /**
