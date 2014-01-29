@@ -41,7 +41,7 @@ import org.voltdb.types.TimestampType;
 public class DoTrade extends VoltProcedure {
 
     // Records a vote
-    public final SQLStmt insertTradeStmt = new SQLStmt("INSERT INTO trades "
+    public static final SQLStmt insertTradeStmt = new SQLStmt("INSERT INTO trades "
 								    					+ "(trade_id, account_id, product_cusip, exchange, status, sourcesystem_id, "
 								    					+ "knowledge_date, effective_date, settlement_date, position_delta,"
 									            		+ "create_user, create_timestamp, last_update_user, last_update_timestamp) "
