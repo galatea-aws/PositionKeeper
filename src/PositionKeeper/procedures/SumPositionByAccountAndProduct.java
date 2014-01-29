@@ -6,11 +6,6 @@ import org.voltdb.VoltProcedure;
 import org.voltdb.VoltTable;
 import org.voltdb.VoltType;
 
-@ProcInfo (
-	    partitionInfo = "trades.product_cusip:0",
-	    singlePartition = true
-)
-
 public class SumPositionByAccountAndProduct  extends VoltProcedure{
     public static final SQLStmt resultStmt = new SQLStmt(
             "SELECT sum(position_delta) from trades where product_cusip = ? and account_id = ?");

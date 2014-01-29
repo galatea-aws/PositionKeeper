@@ -35,9 +35,6 @@ import org.voltdb.VoltProcedure;
 import org.voltdb.VoltTable;
 import org.voltdb.VoltType;
 
-@ProcInfo (
-    singlePartition = false
-)
 public class CountTradesByAccount extends VoltProcedure{
     public final static SQLStmt resultStmt = new SQLStmt(
             "SELECT count (account_id) from trades where account_id = ?");
