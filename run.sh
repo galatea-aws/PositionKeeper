@@ -113,7 +113,6 @@ if [ $# = 1 ];
 else 
 	if [ $# -gt 0 ]; 
 		then PROCEDURENAME=$2
-		echo $PROCEDURENAME
 		$1; 
 	else server; 
 	fi
