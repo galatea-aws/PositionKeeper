@@ -267,7 +267,7 @@ public class TestDataSimulator {
 
         System.out.printf("Average throughput:%d txns/sec\n", stats.getTxnThroughput());
         System.out.println("TestDataSimulator");
-        System.out.println(DoTrade.insertTradeStmt);
+        System.out.println(DoTrade.insertTradeStmt.getText());
         System.out.println((System.currentTimeMillis() - simulatorStartTS));
 /*        if(this.config.latencyreport) {
             System.out.printf("Average latency:               %,9.2f ms\n", stats.getAverageLatency());
