@@ -68,5 +68,5 @@ PARTITION PROCEDURE SumPositionByAccountAndProduct ON TABLE trades COLUMN produc
 PARTITION PROCEDURE SumPositionForProductGroupByAccount ON TABLE trades COLUMN product_cusip;
 
 
-CREATE INDEX trades_account_id ON trades product_cusip;
-PARTITION TABLE trades ON COLUMN (product_cusip,account_id);
+CREATE INDEX trades_account_id ON trades (product_cusip);
+PARTITION TABLE trades ON COLUMN product_cusip,account_id;
